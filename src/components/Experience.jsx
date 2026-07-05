@@ -5,12 +5,12 @@ import WorkIcon from '@mui/icons-material/Work';
 const MotionBox = motion.create(Box);
 
 const responsibilities = [
-  'Building and maintaining ReactJS-based web applications',
-  'Implementing complex state management using Redux',
-  'Developing interactive workflow editors with React Flow',
-  'Integrating RESTful APIs and handling async data flows',
-  'Debugging, performance optimization, and code reviews',
-  'Collaborating with cross-functional teams for feature delivery',
+  'Developed 25+ reusable and responsive UI components using ReactJS, Redux, and Material UI (MUI)',
+  'Optimized visual workflow editors using React Flow, reducing ETL pipeline creation time',
+  'Integrated FastAPI REST APIs for ETL workflow execution, scheduling, and real-time data processing',
+  'Resolved production issues by debugging frontend applications, reducing execution time by 30%',
+  'Delivered 20+ client-requested feature enhancements and integrated AI-powered chatbot using Flowise AI',
+  'Collaborated with cross-functional teams for feature delivery and code reviews',
 ];
 
 export default function Experience() {
@@ -91,7 +91,7 @@ export default function Experience() {
               </Box>
               <Box>
                 <Typography variant="h5" sx={{ fontWeight: 700 }}>
-                  Frontend Developer
+                  Software Engineer
                 </Typography>
                 <Typography
                   variant="subtitle1"
@@ -104,10 +104,10 @@ export default function Experience() {
                     WebkitTextFillColor: 'transparent',
                   }}
                 >
-                  Hyperminds Tech
+                  Hyperminds Tech Private Limited
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  2023 — Present · 1.6+ years
+                  Oct 2024 — Present · Pune, Maharashtra
                 </Typography>
               </Box>
             </Stack>
@@ -133,7 +133,7 @@ export default function Experience() {
             </Box>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-              {['ReactJS', 'Redux', 'React Flow', 'Material UI', 'Node.js', 'Express.js', 'FastAPI', 'PostgreSQL', 'MongoDB'].map((tech) => (
+              {['ReactJS', 'Redux', 'React Flow', 'Material UI', 'FastAPI', 'Flowise AI', 'REST APIs'].map((tech) => (
                 <Chip
                   key={tech}
                   label={tech}

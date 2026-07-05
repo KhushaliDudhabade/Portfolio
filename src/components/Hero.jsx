@@ -94,7 +94,7 @@ export default function Hero() {
               mb: 3,
             }}
           >
-            Frontend Developer (ReactJS) | Full-Stack Exposure
+            Software Engineer | Frontend Developer | ReactJS Developer
           </MotionTypography>
           <MotionTypography
             variant="h6"
@@ -110,9 +110,9 @@ export default function Hero() {
               lineHeight: 1.7,
             }}
           >
-            I build scalable, dynamic, and performant web applications with modern
-            frontend technologies. Passionate about crafting pixel-perfect UIs and
-            seamless user experiences.
+            Building scalable, intuitive, and user-centric web applications with
+            2 years of experience in ReactJS, Redux, and modern frontend technologies.
+            Passionate about reusable UI components and optimized performance.
           </MotionTypography>
           <MotionBox
             initial={{ opacity: 0, y: 20 }}

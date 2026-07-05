@@ -7,46 +7,48 @@ const MotionCard = motion.create(Card);
 
 const projects = [
   {
-    title: 'Skyshift',
-    subtitle: 'ETL Platform (Live)',
+    title: 'Sigma CRM',
+    subtitle: 'Sales, Marketing & Support Platform',
     description:
-      'A comprehensive ETL platform enabling users to build, manage, and monitor data pipelines with an intuitive drag-and-drop workflow editor built using React Flow.',
-    tech: ['ReactJS', 'Redux', 'React Flow', 'Material UI', 'FastAPI', 'PostgreSQL'],
+      'Enterprise CRM supporting deal pipelines, campaign automation, ticketing, and analytics dashboards with a visual workflow builder.',
+    tech: ['ReactJS', 'React Query', 'Material UI', 'FastAPI'],
     contributions: [
-      'Built interactive workflow editor with React Flow',
-      'Implemented complex state management with Redux',
-      'Designed responsive UI components with MUI',
+      'Built frontend modules for deal pipelines, ticketing, and analytics',
+      'Implemented visual workflow builder with 7 trigger types and 10+ automated actions',
+      'Crafted marketing interfaces for campaigns, audience segmentation, and email templates',
+      'Engineered bulk import/export with column mapping and batch processing',
+      'Enabled scalable operations with RBAC, React Query caching, and webhook integration',
+    ],
+    live: 'https://www.sigma.hyperminds.tech/crm',
+    github: null,
+  },
+  {
+    title: 'Skyshift',
+    subtitle: 'ETL & Data Integration Platform',
+    description:
+      'Enterprise ETL platform with scheduled and on-demand data pipelines, visual workflow editors, and enterprise connector integrations.',
+    tech: ['ReactJS', 'React Flow', 'Redux', 'Material UI', 'FastAPI'],
+    contributions: [
+      'Designed visual workflow editors using React Flow for pipeline creation and execution',
+      'Integrated FastAPI REST APIs with Salesforce, Snowflake, Databricks, HubSpot connectors',
+      'Supported frontend features for scheduled and on-demand data pipelines',
     ],
     live: 'https://app.myskyshift.com/',
-    github: '#',
+    github: null,
   },
   {
     title: 'Personal Finance Tracker',
     subtitle: 'Full-Stack Web App',
     description:
-      'A full-stack application for tracking personal finances, managing budgets, and visualizing spending patterns with interactive charts and dashboards.',
-    tech: ['ReactJS', 'Node.js', 'MongoDB', 'Material UI', 'Chart.js'],
+      'Personal finance tracker for monitoring income, expenses, and real-time account balance with secure authentication and interactive charts.',
+    tech: ['ReactJS', 'JavaScript', 'Firebase', 'Firestore'],
     contributions: [
-      'Developed responsive dashboard with data visualizations',
-      'Implemented authentication and user management',
-      'Built RESTful APIs for CRUD operations',
+      'Created finance tracker with real-time income and expense monitoring',
+      'Leveraged Firebase Authentication and Firestore for secure data management',
+      'Built interactive charts for spending insights and analytics',
     ],
-    live: '#',
+    live: null,
     github: 'https://github.com/KhushaliDudhabade/personalFinanceTracker',
-  },
-  {
-    title: 'Podcast Web App',
-    subtitle: 'Media Streaming Platform',
-    description:
-      'A modern podcast streaming application with features like playlist management, episode tracking, and a clean audio player interface.',
-    tech: ['ReactJS', 'Firebase', 'Redux', 'CSS3'],
-    contributions: [
-      'Created custom audio player with playback controls',
-      'Implemented real-time data sync with Firebase',
-      'Built search and filter functionality',
-    ],
-    live: '#',
-    github: 'https://github.com/KhushaliDudhabade/Podcast_platform',
   },
 ];
 
@@ -173,34 +175,40 @@ export default function Projects() {
                 </CardContent>
 
                 <Stack direction="row" spacing={1} sx={{ p: 2, pt: 0 }}>
-                  <Button
-                    size="small"
-                    variant="contained"
-                    startIcon={<LaunchIcon />}
-                    href={project.live}
-                    sx={{
-                      background: isDark
-                        ? 'linear-gradient(135deg, #64ffda, #4ecdc4)'
-                        : 'linear-gradient(135deg, #7c3aed, #a855f7)',
-                      color: isDark ? '#0a192f' : '#fff',
-                      '&:hover': { transform: 'scale(1.02)' },
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    Live Demo
-                  </Button>
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    startIcon={<GitHubIcon />}
-                    href={project.github}
-                    sx={{
-                      '&:hover': { transform: 'scale(1.02)' },
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    GitHub
-                  </Button>
+                  {project.live && (
+                    <Button
+                      size="small"
+                      variant="contained"
+                      startIcon={<LaunchIcon />}
+                      href={project.live}
+                      target="_blank"
+                      sx={{
+                        background: isDark
+                          ? 'linear-gradient(135deg, #64ffda, #4ecdc4)'
+                          : 'linear-gradient(135deg, #7c3aed, #a855f7)',
+                        color: isDark ? '#0a192f' : '#fff',
+                        '&:hover': { transform: 'scale(1.02)' },
+                        transition: 'all 0.3s ease',
+                      }}
+                    >
+                      Live Demo
+                    </Button>
+                  )}
+                  {project.github && (
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      startIcon={<GitHubIcon />}
+                      href={project.github}
+                      target="_blank"
+                      sx={{
+                        '&:hover': { transform: 'scale(1.02)' },
+                        transition: 'all 0.3s ease',
+                      }}
+                    >
+                      GitHub
+                    </Button>
+                  )}
                 </Stack>
               </MotionCard>
             </Grid>

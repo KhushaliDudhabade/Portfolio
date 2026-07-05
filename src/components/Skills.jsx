@@ -6,12 +6,12 @@ const MotionPaper = motion.create(Paper);
 const skillCategories = [
   {
     title: 'Languages',
-    skills: ['JavaScript (ES6+)', 'Python'],
+    skills: ['JavaScript (ES6+)'],
     color: '#ffd700',
   },
   {
     title: 'Frontend',
-    skills: ['ReactJS', 'Redux', 'HTML', 'CSS', 'Material UI (MUI)'],
+    skills: ['ReactJS', 'Next.js', 'Redux', 'React Flow', 'HTML5', 'CSS3', 'Material UI (MUI)', 'Responsive Web Design'],
     color: '#64ffda',
   },
   {
@@ -21,7 +21,7 @@ const skillCategories = [
   },
   {
     title: 'Databases',
-    skills: ['MongoDB', 'PostgreSQL', 'Firebase'],
+    skills: ['MongoDB', 'Firebase Firestore'],
     color: '#ff6b6b',
   },
   {
@@ -30,8 +30,8 @@ const skillCategories = [
     color: '#4ecdc4',
   },
   {
-    title: 'CS Fundamentals',
-    skills: ['OOP', 'Data Structures & Algorithms', 'DBMS', 'Operating Systems'],
+    title: 'Core CS',
+    skills: ['Data Structures & Algorithms', 'OOP', 'DBMS', 'Operating Systems'],
     color: '#f093fb',
   },
 ];
