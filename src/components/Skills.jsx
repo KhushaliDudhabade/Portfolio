@@ -63,7 +63,7 @@ export default function Skills() {
       id="skills"
       className={isDark ? 'bg-grid' : undefined}
       sx={{
-        py: 10,
+        py: { xs: 6, md: 10 },
         background: isDark ? '#0C0B1E' : 'linear-gradient(180deg, #ffffff 0%, #f5f0ff 100%)',
       }}
     >

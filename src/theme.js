@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 // Accent palette shared across skill/project cards so colors stay consistent
 export const accents = {
@@ -11,7 +11,7 @@ export const accents = {
 };
 
 export const getTheme = (mode) =>
-  createTheme({
+  responsiveFontSizes(createTheme({
     palette: {
       mode,
       ...(mode === 'dark'
@@ -50,4 +50,4 @@ export const getTheme = (mode) =>
         },
       },
     },
-  });
+  }));

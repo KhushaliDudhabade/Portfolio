@@ -7,10 +7,10 @@ const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
 
 const techBadges = [
-  { label: '⚛️ React', top: '4%', left: '-8%', delay: 0 },
-  { label: '🔷 JavaScript', top: '18%', right: '-10%', delay: 0.6 },
-  { label: '🎨 MUI', top: '68%', left: '-12%', delay: 1.2 },
-  { label: '⚡ FastAPI', top: '82%', right: '-6%', delay: 1.8 },
+  { label: '⚛️ React', top: '4%', left: { xs: '2%', md: '-8%' }, delay: 0 },
+  { label: '🔷 JavaScript', top: '18%', right: { xs: '2%', md: '-10%' }, delay: 0.6 },
+  { label: '🎨 MUI', top: '68%', left: { xs: '0%', md: '-12%' }, delay: 1.2 },
+  { label: '⚡ FastAPI', top: '82%', right: { xs: '0%', md: '-6%' }, delay: 1.8 },
 ];
 
 export default function Hero() {
@@ -21,11 +21,13 @@ export default function Hero() {
     <Box
       id="hero"
       sx={{
-        minHeight: '92vh',
+        minHeight: { xs: 'auto', md: '92vh' },
+        py: { xs: 10, md: 0 },
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
-        overflow: 'hidden',
+        overflowX: 'hidden',
+        overflowY: 'visible',
         background: isDark
           ? '#0C0B1E'
           : 'linear-gradient(135deg, #f5f0ff 0%, #ede4ff 30%, #f0e6ff 60%, #f5f0ff 100%)',
@@ -96,7 +98,7 @@ export default function Hero() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 sx={{
                   fontWeight: 800,
-                  fontSize: { xs: '2.5rem', md: '3.8rem' },
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3.8rem' },
                   mb: 1,
                   color: isDark ? '#F1EFFF' : undefined,
                   ...(!isDark && {
@@ -115,7 +117,7 @@ export default function Hero() {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 sx={{
                   fontWeight: 600,
-                  fontSize: { xs: '1.15rem', md: '1.8rem' },
+                  fontSize: { xs: '1rem', sm: '1.15rem', md: '1.8rem' },
                   mb: 3,
                   background: isDark
                     ? 'linear-gradient(90deg, #A855F7, #D946EF)'
@@ -136,7 +138,7 @@ export default function Hero() {
                   maxWidth: 560,
                   mb: 4,
                   fontWeight: 400,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
+                  fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
                   lineHeight: 1.7,
                 }}
               >
@@ -209,7 +211,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.7, ease: 'easeOut' }}
-              sx={{ position: 'relative', width: { xs: 220, md: 280 }, height: { xs: 220, md: 280 } }}
+              sx={{ position: 'relative', width: { xs: 180, sm: 220, md: 280 }, height: { xs: 180, sm: 220, md: 280 } }}
             >
               {isDark && (
                 <Box
@@ -239,7 +241,7 @@ export default function Hero() {
                   boxShadow: isDark ? '0 0 50px rgba(168,85,247,0.35)' : 'none',
                 }}
               >
-                <Typography sx={{ fontSize: '4.5rem', fontWeight: 800, color: isDark ? '#A855F7' : '#7c3aed', opacity: 0.7 }}>
+                <Typography sx={{ fontSize: { xs: '3rem', sm: '3.6rem', md: '4.5rem' }, fontWeight: 800, color: isDark ? '#A855F7' : '#7c3aed', opacity: 0.7 }}>
                   KD
                 </Typography>
               </Box>
@@ -259,10 +261,10 @@ export default function Hero() {
                       top: badge.top,
                       left: badge.left,
                       right: badge.right,
-                      px: 1.5,
-                      py: 0.7,
+                      px: { xs: 1, md: 1.5 },
+                      py: { xs: 0.5, md: 0.7 },
                       borderRadius: 2,
-                      fontSize: '0.75rem',
+                      fontSize: { xs: '0.65rem', md: '0.75rem' },
                       fontWeight: 600,
                       whiteSpace: 'nowrap',
                       color: '#F1EFFF',
