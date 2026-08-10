@@ -20,11 +20,10 @@ export default function Experience() {
   return (
     <Box
       id="experience"
+      className={isDark ? 'bg-grid' : undefined}
       sx={{
         py: 10,
-        background: isDark
-          ? 'linear-gradient(180deg, #112240 0%, #0a192f 100%)'
-          : 'linear-gradient(180deg, #ffffff 0%, #f5f0ff 100%)',
+        background: isDark ? '#0C0B1E' : 'linear-gradient(180deg, #ffffff 0%, #f5f0ff 100%)',
       }}
     >
       <Container maxWidth="lg">
@@ -34,6 +33,12 @@ export default function Experience() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7 }}
         >
+          <Typography
+            variant="overline"
+            sx={{ display: 'block', letterSpacing: 3, fontWeight: 700, color: isDark ? '#D946EF' : 'primary.main' }}
+          >
+            Experience
+          </Typography>
           <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
             Experience
           </Typography>
@@ -42,7 +47,7 @@ export default function Experience() {
               width: 60,
               height: 4,
               background: isDark
-                ? 'linear-gradient(90deg, #64ffda, #bb86fc)'
+                ? 'linear-gradient(90deg, #A855F7, #D946EF)'
                 : 'linear-gradient(90deg, #7c3aed, #a855f7)',
               borderRadius: 2,
               mb: 4,
@@ -53,18 +58,19 @@ export default function Experience() {
             elevation={0}
             sx={{
               p: 4,
+              borderRadius: 3,
               border: '1px solid',
-              borderColor: isDark ? 'rgba(100,255,218,0.15)' : 'rgba(124,58,237,0.12)',
-              bgcolor: isDark ? 'rgba(17,34,64,0.8)' : 'rgba(255,255,255,0.9)',
+              borderColor: isDark ? 'rgba(34,211,238,0.2)' : 'rgba(124,58,237,0.12)',
+              bgcolor: isDark ? 'rgba(20,19,44,0.75)' : 'rgba(255,255,255,0.9)',
               backdropFilter: 'blur(10px)',
               position: 'relative',
               overflow: 'hidden',
               transition: 'all 0.4s ease',
               '&:hover': {
                 boxShadow: isDark
-                  ? '0 16px 40px rgba(100,255,218,0.08)'
+                  ? '0 16px 40px rgba(34,211,238,0.15)'
                   : '0 16px 40px rgba(124,58,237,0.1)',
-                borderColor: isDark ? 'rgba(100,255,218,0.3)' : 'rgba(124,58,237,0.25)',
+                borderColor: isDark ? 'rgba(34,211,238,0.4)' : 'rgba(124,58,237,0.25)',
               },
               '&::before': {
                 content: '""',
@@ -74,7 +80,7 @@ export default function Experience() {
                 width: 4,
                 height: '100%',
                 background: isDark
-                  ? 'linear-gradient(180deg, #64ffda, #bb86fc)'
+                  ? 'linear-gradient(180deg, #22D3EE, #A855F7)'
                   : 'linear-gradient(180deg, #7c3aed, #a855f7)',
               },
             }}
@@ -84,10 +90,11 @@ export default function Experience() {
                 sx={{
                   p: 1,
                   borderRadius: 2,
-                  bgcolor: isDark ? 'rgba(100,255,218,0.1)' : 'rgba(124,58,237,0.08)',
+                  bgcolor: isDark ? 'rgba(34,211,238,0.12)' : 'rgba(124,58,237,0.08)',
+                  boxShadow: isDark ? '0 0 24px rgba(34,211,238,0.35)' : 'none',
                 }}
               >
-                <WorkIcon color="primary" sx={{ fontSize: 32 }} />
+                <WorkIcon sx={{ fontSize: 32, color: isDark ? '#22D3EE' : 'primary.main' }} />
               </Box>
               <Box>
                 <Typography variant="h5" sx={{ fontWeight: 700 }}>
@@ -98,7 +105,7 @@ export default function Experience() {
                   sx={{
                     fontWeight: 600,
                     background: isDark
-                      ? 'linear-gradient(90deg, #64ffda, #4ecdc4)'
+                      ? 'linear-gradient(90deg, #22D3EE, #A855F7)'
                       : 'linear-gradient(90deg, #7c3aed, #a855f7)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -139,13 +146,14 @@ export default function Experience() {
                   label={tech}
                   size="small"
                   sx={{
-                    borderColor: isDark ? 'rgba(100,255,218,0.4)' : 'rgba(124,58,237,0.3)',
+                    borderRadius: '999px',
+                    borderColor: isDark ? 'rgba(34,211,238,0.4)' : 'rgba(124,58,237,0.3)',
                     border: '1px solid',
-                    bgcolor: isDark ? 'rgba(100,255,218,0.08)' : 'rgba(124,58,237,0.06)',
+                    bgcolor: isDark ? 'rgba(34,211,238,0.08)' : 'rgba(124,58,237,0.06)',
                     fontWeight: 500,
                     transition: 'all 0.3s ease',
                     '&:hover': {
-                      bgcolor: isDark ? 'rgba(100,255,218,0.15)' : 'rgba(124,58,237,0.12)',
+                      bgcolor: isDark ? 'rgba(34,211,238,0.18)' : 'rgba(124,58,237,0.12)',
                       transform: 'scale(1.05)',
                     },
                   }}

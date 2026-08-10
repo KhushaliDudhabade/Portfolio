@@ -37,8 +37,9 @@ export default function Navbar({ mode, toggleTheme }) {
         elevation={0}
         sx={{
           backdropFilter: 'blur(10px)',
-          backgroundColor: mode === 'dark' ? 'rgba(10,25,47,0.85)' : 'rgba(255,255,255,0.85)',
-          borderBottom: `1px solid ${mode === 'dark' ? 'rgba(100,255,218,0.1)' : 'rgba(0,0,0,0.08)'}`,
+          backgroundColor: mode === 'dark' ? 'rgba(12,11,30,0.85)' : 'rgba(255,255,255,0.85)',
+          borderBottom: `1px solid ${mode === 'dark' ? 'rgba(168,85,247,0.2)' : 'rgba(0,0,0,0.08)'}`,
+          boxShadow: mode === 'dark' ? '0 1px 20px rgba(168,85,247,0.15)' : 'none',
         }}
       >
         <Toolbar sx={{ justifyContent: 'space-between' }}>

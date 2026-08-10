@@ -1,5 +1,6 @@
 import { Box, Typography, Container, Chip, Paper, Grid, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
+import { accents } from '../theme';
 
 const MotionPaper = motion.create(Paper);
 
@@ -7,32 +8,32 @@ const skillCategories = [
   {
     title: 'Languages',
     skills: ['JavaScript (ES6+)'],
-    color: '#ffd700',
+    color: accents.orange,
   },
   {
     title: 'Frontend',
     skills: ['ReactJS', 'Next.js', 'Redux', 'React Flow', 'HTML5', 'CSS3', 'Material UI (MUI)', 'Responsive Web Design'],
-    color: '#64ffda',
+    color: accents.cyan,
   },
   {
     title: 'Backend',
     skills: ['Node.js', 'Express.js', 'FastAPI'],
-    color: '#bb86fc',
+    color: accents.purple,
   },
   {
     title: 'Databases',
     skills: ['MongoDB', 'Firebase Firestore'],
-    color: '#ff6b6b',
+    color: accents.magenta,
   },
   {
     title: 'Tools',
     skills: ['Git', 'GitHub', 'Postman'],
-    color: '#4ecdc4',
+    color: accents.green,
   },
   {
     title: 'Core CS',
     skills: ['Data Structures & Algorithms', 'OOP', 'DBMS', 'Operating Systems'],
-    color: '#f093fb',
+    color: accents.blue,
   },
 ];
 
@@ -60,11 +61,10 @@ export default function Skills() {
   return (
     <Box
       id="skills"
+      className={isDark ? 'bg-grid' : undefined}
       sx={{
         py: 10,
-        background: isDark
-          ? 'linear-gradient(180deg, #112240 0%, #0a192f 100%)'
-          : 'linear-gradient(180deg, #ffffff 0%, #f5f0ff 100%)',
+        background: isDark ? '#0C0B1E' : 'linear-gradient(180deg, #ffffff 0%, #f5f0ff 100%)',
       }}
     >
       <Container maxWidth="lg">
@@ -74,6 +74,17 @@ export default function Skills() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7 }}
         >
+          <Typography
+            variant="overline"
+            sx={{
+              display: 'block',
+              letterSpacing: 3,
+              fontWeight: 700,
+              color: isDark ? '#D946EF' : 'primary.main',
+            }}
+          >
+            Skills
+          </Typography>
           <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
             Skills & Technologies
           </Typography>
@@ -82,7 +93,7 @@ export default function Skills() {
               width: 60,
               height: 4,
               background: isDark
-                ? 'linear-gradient(90deg, #64ffda, #bb86fc)'
+                ? 'linear-gradient(90deg, #A855F7, #D946EF)'
                 : 'linear-gradient(90deg, #7c3aed, #a855f7)',
               borderRadius: 2,
               mb: 4,
@@ -105,15 +116,16 @@ export default function Skills() {
                   sx={{
                     p: 3,
                     height: '100%',
+                    borderRadius: 3,
                     border: '1px solid',
-                    borderColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(124,58,237,0.08)',
-                    bgcolor: isDark ? 'rgba(17,34,64,0.6)' : 'rgba(255,255,255,0.8)',
+                    borderColor: isDark ? `${category.color}30` : 'rgba(124,58,237,0.08)',
+                    bgcolor: isDark ? 'rgba(20,19,44,0.7)' : 'rgba(255,255,255,0.8)',
                     backdropFilter: 'blur(10px)',
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                     '&:hover': {
                       transform: 'translateY(-6px)',
                       borderColor: category.color,
-                      boxShadow: `0 16px 40px ${category.color}20`,
+                      boxShadow: isDark ? `0 16px 40px ${category.color}35` : `0 16px 40px ${category.color}20`,
                     },
                   }}
                 >

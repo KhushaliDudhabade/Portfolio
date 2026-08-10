@@ -75,11 +75,10 @@ export default function Contact() {
   return (
     <Box
       id="contact"
+      className={isDark ? 'bg-grid' : undefined}
       sx={{
         py: 10,
-        background: isDark
-          ? 'linear-gradient(180deg, #0a192f 0%, #112240 100%)'
-          : 'linear-gradient(180deg, #f5f0ff 0%, #ede4ff 100%)',
+        background: isDark ? '#0C0B1E' : 'linear-gradient(180deg, #f5f0ff 0%, #ede4ff 100%)',
       }}
     >
       <Container maxWidth="lg">
@@ -89,6 +88,12 @@ export default function Contact() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7 }}
         >
+          <Typography
+            variant="overline"
+            sx={{ display: 'block', letterSpacing: 3, fontWeight: 700, color: isDark ? '#D946EF' : 'primary.main' }}
+          >
+            Contact
+          </Typography>
           <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
             Get In Touch
           </Typography>
@@ -97,7 +102,7 @@ export default function Contact() {
               width: 60,
               height: 4,
               background: isDark
-                ? 'linear-gradient(90deg, #64ffda, #bb86fc)'
+                ? 'linear-gradient(90deg, #A855F7, #D946EF)'
                 : 'linear-gradient(90deg, #7c3aed, #a855f7)',
               borderRadius: 2,
               mb: 4,
@@ -137,7 +142,7 @@ export default function Contact() {
                         transition: 'all 0.3s ease',
                         '&:hover': {
                           color: 'primary.main',
-                          bgcolor: isDark ? 'rgba(100,255,218,0.05)' : 'rgba(124,58,237,0.05)',
+                          bgcolor: isDark ? 'rgba(168,85,247,0.08)' : 'rgba(124,58,237,0.05)',
                           transform: 'translateX(8px)',
                         },
                       }}
@@ -145,8 +150,8 @@ export default function Contact() {
                       <IconButton
                         size="small"
                         sx={{
-                          color: 'primary.main',
-                          bgcolor: isDark ? 'rgba(100,255,218,0.1)' : 'rgba(124,58,237,0.08)',
+                          color: isDark ? '#A855F7' : 'primary.main',
+                          bgcolor: isDark ? 'rgba(168,85,247,0.12)' : 'rgba(124,58,237,0.08)',
                         }}
                       >
                         {link.icon}
@@ -166,17 +171,25 @@ export default function Contact() {
                 onSubmit={handleSubmit}
                 sx={{
                   p: 4,
+                  borderRadius: 3,
                   border: '1px solid',
-                  borderColor: isDark ? 'rgba(100,255,218,0.1)' : 'rgba(124,58,237,0.1)',
-                  bgcolor: isDark ? 'rgba(17,34,64,0.6)' : 'rgba(255,255,255,0.8)',
+                  borderColor: isDark ? 'rgba(168,85,247,0.2)' : 'rgba(124,58,237,0.1)',
+                  bgcolor: isDark ? 'rgba(20,19,44,0.7)' : 'rgba(255,255,255,0.8)',
                   backdropFilter: 'blur(10px)',
                   transition: 'all 0.3s ease',
                   '&:hover': {
-                    borderColor: isDark ? 'rgba(100,255,218,0.2)' : 'rgba(124,58,237,0.2)',
+                    borderColor: isDark ? 'rgba(168,85,247,0.35)' : 'rgba(124,58,237,0.2)',
                     boxShadow: isDark
-                      ? '0 8px 30px rgba(100,255,218,0.05)'
+                      ? '0 8px 30px rgba(168,85,247,0.12)'
                       : '0 8px 30px rgba(124,58,237,0.08)',
                   },
+                  '& .MuiOutlinedInput-root': isDark
+                    ? {
+                        '& fieldset': { borderColor: 'rgba(168,85,247,0.25)' },
+                        '&:hover fieldset': { borderColor: 'rgba(168,85,247,0.5)' },
+                        '&.Mui-focused fieldset': { borderColor: '#22D3EE', boxShadow: '0 0 0 3px rgba(34,211,238,0.15)' },
+                      }
+                    : undefined,
                 }}
               >
                 <Grid container spacing={2}>
@@ -226,16 +239,16 @@ export default function Contact() {
                         px: 4,
                         py: 1.2,
                         background: isDark
-                          ? 'linear-gradient(135deg, #64ffda, #4ecdc4)'
+                          ? 'linear-gradient(135deg, #A855F7, #22D3EE)'
                           : 'linear-gradient(135deg, #7c3aed, #a855f7)',
-                        color: isDark ? '#0a192f' : '#fff',
+                        color: '#fff',
                         boxShadow: isDark
-                          ? '0 4px 15px rgba(100,255,218,0.2)'
+                          ? '0 4px 15px rgba(168,85,247,0.35)'
                           : '0 4px 15px rgba(124,58,237,0.2)',
                         '&:hover': {
                           transform: 'translateY(-2px)',
                           boxShadow: isDark
-                            ? '0 6px 25px rgba(100,255,218,0.3)'
+                            ? '0 6px 25px rgba(34,211,238,0.45)'
                             : '0 6px 25px rgba(124,58,237,0.3)',
                         },
                         '&:disabled': {

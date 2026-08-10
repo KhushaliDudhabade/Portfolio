@@ -2,6 +2,7 @@ import { Box, Typography, Container, Card, CardContent, Chip, Button, Stack, Gri
 import { motion } from 'framer-motion';
 import LaunchIcon from '@mui/icons-material/Launch';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { accents } from '../theme';
 
 const MotionCard = motion.create(Card);
 
@@ -9,6 +10,7 @@ const projects = [
   {
     title: 'Sigma CRM',
     subtitle: 'Sales, Marketing & Support Platform',
+    color: accents.purple,
     description:
       'Enterprise CRM supporting deal pipelines, campaign automation, ticketing, and analytics dashboards with a visual workflow builder.',
     tech: ['ReactJS', 'React Query', 'Material UI', 'FastAPI'],
@@ -25,6 +27,7 @@ const projects = [
   {
     title: 'Skyshift',
     subtitle: 'ETL & Data Integration Platform',
+    color: accents.cyan,
     description:
       'Enterprise ETL platform with scheduled and on-demand data pipelines, visual workflow editors, and enterprise connector integrations.',
     tech: ['ReactJS', 'React Flow', 'Redux', 'Material UI', 'FastAPI'],
@@ -39,6 +42,7 @@ const projects = [
   {
     title: 'Personal Finance Tracker',
     subtitle: 'Full-Stack Web App',
+    color: accents.green,
     description:
       'Personal finance tracker for monitoring income, expenses, and real-time account balance with secure authentication and interactive charts.',
     tech: ['ReactJS', 'JavaScript', 'Firebase', 'Firestore'],
@@ -68,10 +72,11 @@ export default function Projects() {
   return (
     <Box
       id="projects"
+      className={isDark ? 'bg-grid' : undefined}
       sx={{
         py: 10,
         background: isDark
-          ? 'linear-gradient(180deg, #0a192f 0%, #112240 100%)'
+          ? '#0C0B1E'
           : 'linear-gradient(180deg, #f5f0ff 0%, #ede4ff 50%, #f5f0ff 100%)',
       }}
     >
@@ -82,6 +87,12 @@ export default function Projects() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7 }}
         >
+          <Typography
+            variant="overline"
+            sx={{ display: 'block', letterSpacing: 3, fontWeight: 700, color: isDark ? '#D946EF' : 'primary.main' }}
+          >
+            Work
+          </Typography>
           <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
             Featured Projects
           </Typography>
@@ -90,7 +101,7 @@ export default function Projects() {
               width: 60,
               height: 4,
               background: isDark
-                ? 'linear-gradient(90deg, #64ffda, #bb86fc)'
+                ? 'linear-gradient(90deg, #A855F7, #D946EF)'
                 : 'linear-gradient(90deg, #7c3aed, #a855f7)',
               borderRadius: 2,
               mb: 4,
@@ -112,16 +123,30 @@ export default function Projects() {
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  borderRadius: 3,
                   border: '1px solid',
-                  borderColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(124,58,237,0.1)',
-                  bgcolor: isDark ? 'rgba(17,34,64,0.8)' : 'rgba(255,255,255,0.9)',
+                  borderColor: isDark ? `${project.color}30` : 'rgba(124,58,237,0.1)',
+                  bgcolor: isDark ? 'rgba(20,19,44,0.75)' : 'rgba(255,255,255,0.9)',
                   backdropFilter: 'blur(10px)',
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&::before': isDark
+                    ? {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: 3,
+                        background: project.color,
+                      }
+                    : undefined,
                   '&:hover': {
                     transform: 'translateY(-10px)',
-                    borderColor: 'primary.main',
+                    borderColor: project.color,
                     boxShadow: isDark
-                      ? '0 20px 50px rgba(100,255,218,0.1)'
+                      ? `0 20px 50px ${project.color}30`
                       : '0 20px 50px rgba(124,58,237,0.15)',
                   },
                 }}
@@ -134,11 +159,12 @@ export default function Projects() {
                     variant="caption"
                     sx={{
                       fontWeight: 600,
-                      background: isDark
-                        ? 'linear-gradient(90deg, #64ffda, #4ecdc4)'
-                        : 'linear-gradient(90deg, #7c3aed, #a855f7)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
+                      color: isDark ? project.color : undefined,
+                      ...(!isDark && {
+                        background: 'linear-gradient(90deg, #7c3aed, #a855f7)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                      }),
                     }}
                   >
                     {project.subtitle}
@@ -167,7 +193,9 @@ export default function Projects() {
                         variant="outlined"
                         sx={{
                           fontSize: '0.7rem',
-                          borderColor: isDark ? 'rgba(100,255,218,0.3)' : 'rgba(124,58,237,0.3)',
+                          borderRadius: '999px',
+                          borderColor: isDark ? `${project.color}50` : 'rgba(124,58,237,0.3)',
+                          bgcolor: isDark ? `${project.color}12` : 'transparent',
                         }}
                       />
                     ))}
@@ -184,10 +212,12 @@ export default function Projects() {
                       target="_blank"
                       sx={{
                         background: isDark
-                          ? 'linear-gradient(135deg, #64ffda, #4ecdc4)'
+                          ? `linear-gradient(135deg, ${project.color}, #A855F7)`
                           : 'linear-gradient(135deg, #7c3aed, #a855f7)',
-                        color: isDark ? '#0a192f' : '#fff',
-                        '&:hover': { transform: 'scale(1.02)' },
+                        color: '#fff',
+                        borderRadius: '999px',
+                        boxShadow: isDark ? `0 4px 16px ${project.color}40` : 'none',
+                        '&:hover': { transform: 'scale(1.02)', boxShadow: isDark ? `0 6px 22px ${project.color}55` : 'none' },
                         transition: 'all 0.3s ease',
                       }}
                     >
@@ -202,6 +232,9 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       sx={{
+                        borderRadius: '999px',
+                        borderColor: isDark ? `${project.color}60` : undefined,
+                        color: isDark ? '#F1EFFF' : undefined,
                         '&:hover': { transform: 'scale(1.02)' },
                         transition: 'all 0.3s ease',
                       }}

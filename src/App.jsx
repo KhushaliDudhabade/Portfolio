@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { ThemeProvider, CssBaseline, Box } from '@mui/material';
 import { getTheme } from './theme';
+import IntroLoader from './components/IntroLoader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -22,6 +23,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      {mode === 'dark' && <IntroLoader />}
       <Box sx={{ minHeight: '100vh' }}>
         <Navbar mode={mode} toggleTheme={toggleTheme} />
         <Hero />

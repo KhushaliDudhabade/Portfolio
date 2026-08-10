@@ -1,15 +1,25 @@
 import { createTheme } from '@mui/material/styles';
 
+// Accent palette shared across skill/project cards so colors stay consistent
+export const accents = {
+  purple: '#A855F7',
+  magenta: '#D946EF',
+  cyan: '#22D3EE',
+  green: '#34D399',
+  blue: '#3B82F6',
+  orange: '#F59E0B',
+};
+
 export const getTheme = (mode) =>
   createTheme({
     palette: {
       mode,
       ...(mode === 'dark'
         ? {
-            primary: { main: '#64ffda' },
-            secondary: { main: '#bb86fc' },
-            background: { default: '#0a192f', paper: '#112240' },
-            text: { primary: '#ccd6f6', secondary: '#8892b0' },
+            primary: { main: '#A855F7' },
+            secondary: { main: '#22D3EE' },
+            background: { default: '#0C0B1E', paper: '#14132C' },
+            text: { primary: '#F1EFFF', secondary: '#9C99BE' },
           }
         : {
             primary: { main: '#7c3aed' },

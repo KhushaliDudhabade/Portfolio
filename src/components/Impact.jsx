@@ -15,15 +15,16 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import CodeIcon from '@mui/icons-material/Code';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import WidgetsIcon from '@mui/icons-material/Widgets';
+import { accents } from '../theme';
 
 const MotionBox = motion.create(Box);
 const MotionPaper = motion.create(Paper);
 
 const stats = [
-  { icon: <WidgetsIcon sx={{ fontSize: 32 }} />, value: 25, suffix: '+', label: 'Reusable Components Built' },
-  { icon: <TrendingUpIcon sx={{ fontSize: 32 }} />, value: 30, suffix: '%', label: 'Performance Improvement' },
-  { icon: <RocketLaunchIcon sx={{ fontSize: 32 }} />, value: 20, suffix: '+', label: 'Features Delivered' },
-  { icon: <CodeIcon sx={{ fontSize: 32 }} />, value: 2, suffix: '', label: 'Live Enterprise Products' },
+  { icon: <WidgetsIcon sx={{ fontSize: 32 }} />, value: 25, suffix: '+', label: 'Reusable Components Built', color: accents.cyan },
+  { icon: <TrendingUpIcon sx={{ fontSize: 32 }} />, value: 30, suffix: '%', label: 'Performance Improvement', color: accents.green },
+  { icon: <RocketLaunchIcon sx={{ fontSize: 32 }} />, value: 20, suffix: '+', label: 'Features Delivered', color: accents.orange },
+  { icon: <CodeIcon sx={{ fontSize: 32 }} />, value: 2, suffix: '', label: 'Live Enterprise Products', color: accents.magenta },
 ];
 
 const valueProps = [
@@ -79,11 +80,10 @@ export default function Impact() {
   return (
     <Box
       id="impact"
+      className={isDark ? 'bg-grid' : undefined}
       sx={{
         py: 10,
-        background: isDark
-          ? 'linear-gradient(180deg, #0a192f 0%, #112240 50%, #0a192f 100%)'
-          : 'linear-gradient(180deg, #f5f0ff 0%, #ede4ff 50%, #f5f0ff 100%)',
+        background: isDark ? '#0C0B1E' : 'linear-gradient(180deg, #f5f0ff 0%, #ede4ff 50%, #f5f0ff 100%)',
       }}
     >
       <Container maxWidth="lg">
@@ -93,6 +93,12 @@ export default function Impact() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7 }}
         >
+          <Typography
+            variant="overline"
+            sx={{ display: 'block', letterSpacing: 3, fontWeight: 700, color: isDark ? '#D946EF' : 'primary.main' }}
+          >
+            Achievements
+          </Typography>
           <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
             Impact & Achievements
           </Typography>
@@ -101,7 +107,7 @@ export default function Impact() {
               width: 60,
               height: 4,
               background: isDark
-                ? 'linear-gradient(90deg, #64ffda, #bb86fc)'
+                ? 'linear-gradient(90deg, #A855F7, #D946EF)'
                 : 'linear-gradient(90deg, #7c3aed, #a855f7)',
               borderRadius: 2,
               mb: 5,
@@ -121,21 +127,20 @@ export default function Impact() {
                   sx={{
                     p: 3,
                     textAlign: 'center',
+                    borderRadius: 3,
                     border: '1px solid',
-                    borderColor: isDark ? 'rgba(100,255,218,0.1)' : 'rgba(124,58,237,0.1)',
-                    bgcolor: isDark ? 'rgba(17,34,64,0.8)' : 'rgba(255,255,255,0.9)',
+                    borderColor: isDark ? `${stat.color}30` : 'rgba(124,58,237,0.1)',
+                    bgcolor: isDark ? 'rgba(20,19,44,0.75)' : 'rgba(255,255,255,0.9)',
                     backdropFilter: 'blur(10px)',
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                     '&:hover': {
                       transform: 'translateY(-6px)',
-                      borderColor: 'primary.main',
-                      boxShadow: isDark
-                        ? '0 16px 40px rgba(100,255,218,0.1)'
-                        : '0 16px 40px rgba(124,58,237,0.12)',
+                      borderColor: stat.color,
+                      boxShadow: isDark ? `0 16px 40px ${stat.color}30` : '0 16px 40px rgba(124,58,237,0.12)',
                     },
                   }}
                 >
-                  <Box sx={{ color: 'primary.main', mb: 1 }}>{stat.icon}</Box>
+                  <Box sx={{ color: isDark ? stat.color : 'primary.main', mb: 1 }}>{stat.icon}</Box>
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                   <Typography variant="body2" color="text.secondary" sx={{ mt: 1, fontWeight: 500 }}>
                     {stat.label}
@@ -179,8 +184,8 @@ export default function Impact() {
                   p: 4,
                   textAlign: 'center',
                   border: '1px solid',
-                  borderColor: isDark ? 'rgba(100,255,218,0.15)' : 'rgba(124,58,237,0.12)',
-                  bgcolor: isDark ? 'rgba(17,34,64,0.6)' : 'rgba(255,255,255,0.8)',
+                  borderColor: isDark ? 'rgba(168,85,247,0.2)' : 'rgba(124,58,237,0.12)',
+                  bgcolor: isDark ? 'rgba(20,19,44,0.7)' : 'rgba(255,255,255,0.8)',
                   backdropFilter: 'blur(10px)',
                   borderRadius: 4,
                 }}
@@ -203,16 +208,16 @@ export default function Impact() {
                       px: 4,
                       py: 1.5,
                       background: isDark
-                        ? 'linear-gradient(135deg, #64ffda, #4ecdc4)'
+                        ? 'linear-gradient(135deg, #A855F7, #D946EF)'
                         : 'linear-gradient(135deg, #7c3aed, #a855f7)',
-                      color: isDark ? '#0a192f' : '#fff',
+                      color: '#fff',
                       boxShadow: isDark
-                        ? '0 4px 20px rgba(100,255,218,0.3)'
+                        ? '0 4px 20px rgba(168,85,247,0.4)'
                         : '0 4px 20px rgba(124,58,237,0.3)',
                       '&:hover': {
                         transform: 'translateY(-2px)',
                         boxShadow: isDark
-                          ? '0 6px 30px rgba(100,255,218,0.4)'
+                          ? '0 6px 30px rgba(217,70,239,0.5)'
                           : '0 6px 30px rgba(124,58,237,0.4)',
                       },
                       transition: 'all 0.3s ease',
